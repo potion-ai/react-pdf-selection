@@ -196,8 +196,8 @@ var PdfViewer = /** @class */ (function (_super) {
                         originalPageDimensions = new Map();
                         for (_i = 0, pages_1 = pages; _i < pages_1.length; _i++) {
                             page = pages_1[_i];
-                            width = page.view[2];
-                            height = page.view[3];
+                            width = page.view[2] - page.view[0];
+                            height = page.view[3] - page.view[1];
                             orientation_1 = page.rotate === 90 || page.rotate === 270 ? PDFOrientation.LANDSCAPE : PDFOrientation.PORTRAIT;
                             originalPageDimensions.set(page.pageNumber, { width: width, height: height, orientation: orientation_1 });
                         }
