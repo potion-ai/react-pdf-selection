@@ -379,6 +379,10 @@ export class PdfViewer<D extends object> extends Component<PdfViewerProps<D>, Pd
                     file={this.props.url}
                     loading={loading}
                     onLoadSuccess={this.onDocumentLoad}
+                    options={{
+                        cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/cmaps/`,
+                        cMapPacked: true,
+                      }}
                 >
                     {this.containerDiv && this.state.documentUuid && this.state.pageDimensions && this.renderPages()}
                 </Document>

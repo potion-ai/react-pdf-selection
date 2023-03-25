@@ -392,7 +392,10 @@ var PdfViewer = /** @class */ (function (_super) {
             var document = (react_1.default.createElement("div", { ref: function (ref) { return (_this.containerDiv = ref); }, style: {
                     position: "relative",
                 }, onContextMenu: function (e) { return e.preventDefault(); }, onPointerDown: _this.onMouseDown },
-                react_1.default.createElement(react_pdf_1.Document, { className: _this.state.activeSelectionMode === SelectionMode.TEXT ? "" : "no-select", file: _this.props.url, loading: loading, onLoadSuccess: _this.onDocumentLoad }, _this.containerDiv && _this.state.documentUuid && _this.state.pageDimensions && _this.renderPages())));
+                react_1.default.createElement(react_pdf_1.Document, { className: _this.state.activeSelectionMode === SelectionMode.TEXT ? "" : "no-select", file: _this.props.url, loading: loading, onLoadSuccess: _this.onDocumentLoad, options: {
+                        cMapUrl: "https://unpkg.com/pdfjs-dist@" + react_pdf_1.pdfjs.version + "/cmaps/",
+                        cMapPacked: true,
+                    } }, _this.containerDiv && _this.state.documentUuid && _this.state.pageDimensions && _this.renderPages())));
             return _this.props.children ? _this.props.children({ document: document }) : document;
         };
         return _this;
