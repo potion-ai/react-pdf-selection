@@ -159,8 +159,8 @@ export class PdfViewer<D extends object> extends Component<PdfViewerProps<D>, Pd
         const originalPageDimensions: PageDimensions = new Map();
 
         for (const page of pages) {
-            const width = page.view[2];
-            const height = page.view[3];
+            const width = page.view[2] - page.view[0];
+            const height = page.view[3] - page.view[1];
             const orientation = page.rotate === 90 || page.rotate === 270 ? PDFOrientation.LANDSCAPE : PDFOrientation.PORTRAIT;
             originalPageDimensions.set(page.pageNumber, { width, height, orientation });
         }
